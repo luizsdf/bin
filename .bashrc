@@ -4,7 +4,7 @@ set -o vi
 
 export PS1='$ '
 export EDITOR=vi
-export BROWSER='/usr/local/bin/lynx' # /usr/bin/lynx -cookies -nopause -noreferer -prettysrc -vikeys -tna -useragent=Lynx -index='https://lite.duckduckgo.com/lite/' "$@"
+export BROWSER=lynx
 export HISTCONTROL=ignoreboth
 unset HISTFILE
 
@@ -19,9 +19,8 @@ alias album='yt-dlp --quiet --format=bestaudio --extract-audio --audio-format=mp
 #alias album='yt-dlp --format=bestaudio --extract-audio --audio-format=mp3 --audio-quality=0 --concat-playlist=always --output="pl_video:%(playlist)s.%(ext)s"'
 alias mp4='yt-dlp --embed-metadata --embed-subs --no-playlist --format="bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a] / bestvideo[height<=1080]+bestaudio / best" --output="%(title)s.%(ext)s"'
 alias playlist='yt-dlp --quiet --embed-metadata --embed-subs --format="bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a] / bestvideo[height<=1080]+bestaudio / best" --output="%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"'
-alias news='sfeed_update; SFEED_PLUMBER_INTERACTIVE=1 SFEED_PLUMBER=/usr/local/bin/lynx SFEED_AUTOCMD=tgo SFEED_YANKER="xclip -r -sel c" SFEED_URL_FILE="$HOME/.sfeed/urls" sfeed_curses "$HOME/.sfeed/feeds/"*'
+alias news='sfeed_update; SFEED_PLUMBER_INTERACTIVE=1 SFEED_PLUMBER=lynx SFEED_AUTOCMD=tgo SFEED_YANKER="xclip -r -sel c" SFEED_URL_FILE="$HOME/.sfeed/urls" sfeed_curses "$HOME/.sfeed/feeds/"*'
 alias mail='ssh luiz@sdf.org mail'
-alias token='openssl rand -hex 16'
 alias aes='openssl enc -aes-256-ctr -pbkdf2 -a'
 
 # sfeed_update(1)
