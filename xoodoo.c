@@ -74,7 +74,7 @@ int main()
     size_t size, i;
     FILE *tty = fopen("/dev/tty", "r+");
     uint32_t state[12] = { 0 };
-    char buffer[256] = { 0 };
+    char buffer[512] = { 0 };
 
     if (!tty) return 1;
 
